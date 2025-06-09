@@ -17,7 +17,7 @@ ng new <workspace-name> --create-application="false
 To create application:
 /<name>$ ng g application <application-name>
 
-4. Installing Webpack with Module Federation feature | Microfrontned | Amar Kumar Ram
+4. Installing Webpack with Module Federation feature | Microfrontend | Amar Kumar Ram
 
 Commands:
 
@@ -33,4 +33,10 @@ ng s host-app -o
 To serve mfe-app:
 ng s mfe-app -o
 
-5. Microfrontend in Angular 15 | Module Federation | Webpack | Mono Repo | Mono Workspace | Amar
+5. Microfrontend in Angular 15 | Module Federation | Webpack | Mono Repo | Mono Workspace | Amar Kumar Ram
+
+6. HOST app creation in Mono workspace | Micro-frontend | Angular | Webpack | Amar Kumar Ram
+
+To create components in host-app project:
+ng g c home --project=host-app
+ng g c to-do --project=host-app
