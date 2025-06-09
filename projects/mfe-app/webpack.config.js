@@ -3,9 +3,10 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 module.exports = withModuleFederationPlugin({
 
   name: 'mfe-app',
+  filename: 'remoteEntry.js',
 
   exposes: {
-    './Component': './projects/mfe-app/src/app/app.component.ts',
+    './ToDoComponent': './projects/mfe-app/src/app/to-do-list/to-do-list.component.ts',
   },
 
   shared: {

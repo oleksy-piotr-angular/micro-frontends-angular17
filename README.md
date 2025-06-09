@@ -45,3 +45,5 @@ ng g c to-do --project=host-app
 
 To create component -n mfe-app project:
 ng g c to-do-list --project=mfe-app
+
+8. MFE/SHELL app exposed with Webpack's Module Federation | Mono Workspace | Microfrontend | Angular
