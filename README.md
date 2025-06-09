@@ -40,3 +40,8 @@ ng s mfe-app -o
 To create components in host-app project:
 ng g c home --project=host-app
 ng g c to-do --project=host-app
+
+7. MFE or SHELL app creation in Mono Workspace | Microfrontend | Webpack | Angular | Amar Kumar Ram
+
+To create component -n mfe-app project:
+ng g c to-do-list --project=mfe-app
