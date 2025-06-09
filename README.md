@@ -32,3 +32,5 @@ ng s host-app -o
 
 To serve mfe-app:
 ng s mfe-app -o
+
+5. Microfrontend in Angular 15 | Module Federation | Webpack | Mono Repo | Mono Workspace | Amar
