@@ -18,3 +18,17 @@ To create application:
 /<name>$ ng g application <application-name>
 
 4. Installing Webpack with Module Federation feature | Microfrontned | Amar Kumar Ram
+
+Commands:
+
+To install module federation into host-app:
+ng add @angular-architects/module-federation --project host-app --port 4200
+
+To install module federation into host-app:
+ng add @angular-architects/module-federation --project mfe-app --port 4201
+
+To serve host-app:
+ng s host-app -o
+
+To serve mfe-app:
+ng s mfe-app -o
