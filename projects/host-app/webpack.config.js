@@ -4,8 +4,8 @@ module.exports = withModuleFederationPlugin({
 
   name: 'host-app',
 
-  exposes: {
-    './Component': './projects/host-app/src/app/app.component.ts',
+ remotes: {
+    'mfe': 'http://localhost:4201/mfeTodoList.js',
   },
 
   shared: {

@@ -47,3 +47,24 @@ To create component -n mfe-app project:
 ng g c to-do-list --project=mfe-app
 
 8. MFE/SHELL app exposed with Webpack's Module Federation | Mono Workspace | Microfrontend | Angular
+
+NOTE: remember to restart the server if you cannot observe any changes
+
+9. Consumed MFE at HOST with Module Federation and Angular in Mono Workspace | Amar Kumar Ram
+
+---
+
+if you have this error:
+"Uncaught SyntaxError: Cannot use 'import.meta' outside a module (at styles.js:4522:29)"
+
+you can ignore it because it happens only in development mode. In build there is no something like styles.js in Angular.
+
+Ignore it (Most Common):
+
+As mentioned in several discussions (e.g., on Stack Overflow and Nx documentation), this error often doesn't cause any actual breakages in your application.
+It's a console warning that arises from Angular's compilation process for styles in development mode, not a critical runtime error for your Module Federation setup.
+If your application is working as expected, you can often safely ignore this particular warning.
+
+NOTE!:
+because we are using "standalone=true" we cannot using a module so we implement consumption with this INFO:
+"https://www.angulararchitects.io/en/blog/module-federation-with-angulars-standalone-components/"
