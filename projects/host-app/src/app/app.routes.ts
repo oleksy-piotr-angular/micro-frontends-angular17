@@ -1,6 +1,10 @@
+import { ToDoListComponent } from './../../../mfe-app/src/app/to-do-list/to-do-list.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { loadRemoteModule } from '@angular-architects/module-federation';
+
+const remoteEntryUrl = 'http://localhost:4201/mfeTodoList.js';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -8,7 +12,13 @@ export const routes: Routes = [
   {
     path: 'todo-list',
     loadComponent: () =>
-      import('mfe/Component').then((m) => m.ToDoListComponent),
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: remoteEntryUrl,
+        exposedModule: './Component',
+      }).then((m) => {
+        return m.ToDoListComponent;
+      }),
   },
   {
     path: '**',
