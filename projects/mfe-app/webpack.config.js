@@ -2,11 +2,17 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
 
-  name: 'mfe-app',
-  filename: 'remoteEntry.js',
-
+  name: 'mfe',
+  filename: 'mfeTodoList.js', // <-- Change this line
+  
   exposes: {
-    './ToDoComponent': './projects/mfe-app/src/app/to-do-list/to-do-list.component.ts',
+    // Preferred way: expose corse-grained routes
+    '/routes': './projects/mfe-app/src/app/mfe.routes.ts',
+    
+
+    // Technically possible, but not preferred for Micro Frontends:
+     // Exposing fine-grained components
+    './Component': './projects/mfe-app/src/app/to-do-list/to-do-list.component.ts',
   },
 
   shared: {
