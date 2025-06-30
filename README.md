@@ -17,38 +17,81 @@ ng new <workspace-name> --create-application="false
 To create application:
 /<name>$ ng g application <application-name>
 
+In this Tutorial we created 2 applications:
+
+- /mono-workspace$ ng g application host-app --routing --style=scss
+- /mono-workspace$ ng g application mfe-app --routing --style=scss
+
+REMEMBER TO CLEANUP EACH Application in your WORKSPACE after you generate it.
+
 4. Installing Webpack with Module Federation feature | Microfrontend | Amar Kumar Ram
 
 Commands:
 
-To install module federation into host-app:
-ng add @angular-architects/module-federation --project host-app --port 4200
-
-To install module federation into host-app:
-ng add @angular-architects/module-federation --project mfe-app --port 4201
-
 To serve host-app:
-ng s host-app -o
+/mono-workspace$ ng s host-app -o
 
 To serve mfe-app:
-ng s mfe-app -o
+/mono-workspace$ ng s mfe-app -o
+
+IF you NOT have WEBPACK 5:
+/mono-workspace$ npm i webpack webpack-cli --save-dev
+
+To install module federation into host-app:
+/mono-workspace$ ng add @angular-architects/module-federation --project host-app --port 4200
+
+To install module federation into mfe-app:
+/mono-workspace$ ng add @angular-architects/module-federation --project mfe-app --port 4201
 
 5. Microfrontend in Angular 15 | Module Federation | Webpack | Mono Repo | Mono Workspace | Amar Kumar Ram
 
+To serve host-app:
+/mono-workspace$ ng s host-app -o
+
+To serve mfe-app:
+/mono-workspace$ ng s mfe-app -o
+
+But in this Workspace I'm using Angular 17 and --standalone=true
+
 6. HOST app creation in Mono workspace | Micro-frontend | Angular | Webpack | Amar Kumar Ram
 
+His Tutorial REPO:
+https://github.com/amarkumarram/MicrofrontendTutorial
+
 To create components in host-app project:
-ng g c home --project=host-app
-ng g c to-do --project=host-app
+/mono-workspace$ ng g c home --project=host-app
+/mono-workspace$ ng g c to-do --project=host-app
 
 7. MFE or SHELL app creation in Mono Workspace | Microfrontend | Webpack | Angular | Amar Kumar Ram
 
 To create component -n mfe-app project:
-ng g c to-do-list --project=mfe-app
+/mono-workspace$ ng g c to-do-list --project=mfe-app
+
+If we are using "--standalone=false":
+/mono-workspace$ ng g module to-do-list --project=mfe-app
+
+in mfe-app/app.module.ts need to import "ToDoListModule"
+
+In "mfe.routes.ts" need to add:
+export const routes: Routes = [
+{ path: '', redirectTo: '/todo-list', pathMatch: 'full' },
+{ path: 'todo-list', component: ToDoListComponent },
+];
+
+and in mfe "app.component.html" need to have only:
+<router-outlet></router-outlet>
+
+Remember to import RouterOutlet in "mfe-app"
+
+We move all code from ToDoComponent into ToDoListComponent of "mfe-app"
 
 8. MFE/SHELL app exposed with Webpack's Module Federation | Mono Workspace | Microfrontend | Angular
 
-NOTE: remember to restart the server if you cannot observe any changes
+   We need to check into the browser if we are getting "remoteEntry.js" when we serve "mfe-app":
+
+http://localhost:4201/remoteEntry.js
+
+NOTE:When we do changes into configuration file remember to restart the "mfe-app" server if you cannot observe any changes.
 
 9. Consumed MFE at HOST with Module Federation and Angular in Mono Workspace | Amar Kumar Ram
 
